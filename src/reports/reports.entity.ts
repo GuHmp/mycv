@@ -1,6 +1,8 @@
+/* eslint-disable prettier/prettier */
 import { Column, PrimaryGeneratedColumn, Entity } from 'typeorm';
 
-export class Report{
+@Entity()
+export class Report {
   @PrimaryGeneratedColumn()
   id: number;
 
