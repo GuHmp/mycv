@@ -5,3 +5,10 @@ Content-Type: application/json
     "email": "aaaa@aaaa.com",
     "password": "asdsadasd"
 }
+
+###
+GET http://localhost:3000/auth/1
+
+###
+
+GET http://localhost:3000/auth?email=aaaa@aaaa.com
