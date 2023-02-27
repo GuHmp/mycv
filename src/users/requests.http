@@ -3,12 +3,28 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "aaaa@aaaa.com",
-    "password": "asdsadasd"
+    "email": "dddd@dddd.com",
+    "password": "dddddd"
 }
 
 ###
-GET http://localhost:3000/auth/3
+POST http://localhost:3000/auth/signout
+
+###
+
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+    "email": "dddd@dddd.com",
+    "password": "dddddd"
+}
+
+###
+GET http://localhost:3000/auth/whoami
+
+###
+GET http://localhost:3000/auth/5
 
 ###
 
@@ -24,3 +40,9 @@ Content-Type: application/json
 {
     "email": "bbbb@bbbb.com"
 }
+
+###
+GET http://localhost:3000/auth/colors/blue
+
+###
+GET http://localhost:3000/auth/colors
