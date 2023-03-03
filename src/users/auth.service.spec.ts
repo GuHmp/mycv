@@ -53,10 +53,7 @@ describe('AuthService', () => {
   });
 
   it('erro se tiver email duplicado', async () => {
-    fakeUsersService.find = () =>
-      Promise.resolve([
-        { id: 1, email: 'asdf@asdf.com', password: 'asdf' } as User,
-      ]);
+    await service.signup('asdf@asdf.com', 'asdf');
     await expect(service.signup('asdf@asdf.com', 'asdf')).rejects.toThrow(
       BadRequestException,
     );
@@ -69,12 +66,9 @@ describe('AuthService', () => {
   });
 
   it('joga se um password invalido for usado', async () => {
-    fakeUsersService.find = () =>
-      Promise.resolve([
-        { email: 'asdf@asdf.com', password: 'laskdjf' } as User,
-      ]);
+    await service.signup('lasdflk@asdflk.com', 'passasdf');
     await expect(
-      service.signin('lasdflk@asdflk.com', 'passasdf'),
+      service.signin('lasdflk@asdflk.com', 'passasdf1'),
     ).rejects.toThrow(BadRequestException);
   });
 
