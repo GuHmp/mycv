@@ -19,13 +19,13 @@ const cookieSession = require('cookie-session');
     TypeOrmModule.forRootAsync({
       inject: [ConfigService],
       useFactory: (config: ConfigService) => {
-        return{
+        return {
           type: 'sqlite',
           database: config.get<string>('DB_NAME'),
           entities: [User, Report],
           synchronize: true,
-        }
-      }
+        };
+      },
     }),
     // TypeOrmModule.forRoot({
     //   type: 'sqlite',
@@ -44,13 +44,17 @@ const cookieSession = require('cookie-session');
       useValue: new ValidationPipe({
         whitelist: true,
       }),
-    }
+    },
   ],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(cookieSession({
-      keys: ['qwerty'],
-    })).forRoutes('*');
+    consumer
+      .apply(
+        cookieSession({
+          keys: ['qwerty'],
+        }),
+      )
+      .forRoutes('*');
   }
 }

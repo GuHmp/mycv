@@ -2,11 +2,23 @@ POST http://localhost:3000/reports
 content-type: application/json
 
 {
-    "make": "toyota",
-    "model": "corolla",
-    "year": 1980,
-    "mileage": 100000,
-    "lng": 0,
-    "lat": 0,
-    "price": 100000
+    "make": "fiat",
+    "model": "uno",
+    "year": 2015,
+    "mileage": 60000,
+    "lng": 45,
+    "lat": 45,
+    "price": 15000
 }
+
+###
+
+PATCH http://localhost:3000/reports/5
+Content-Type: application/json
+
+{
+    "approved": true
+}
+
+###
+GET http://localhost:3000/reports/?make=toyota&model=corolla&lng=0&lat=0&mileage=20000&year=1980

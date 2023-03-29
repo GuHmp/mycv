@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
-import { Report } from 'src/reports/reports.entity';
+import { Report } from "src/reports/reports.entity";
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-
 
 @Entity()
 export class User {
@@ -13,6 +12,9 @@ export class User {
 
   @Column()
   password: string;
+
+  @Column({default: true})
+  admin: boolean
 
   @OneToMany(() => Report, (report) => report.user)
   reports: Report[];
